@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat de Detección de Anomalías</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'detector/css/styles.css' %}">
+    <script src="{% static 'detector/js/chat.js' %}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="chat-header">
+            <h1>Asistente de Detección de Anomalías</h1>
+            <div class="user-info">
+                <p>Usuario: {{ request.user.username }} | <a href="{% url 'account_logout' %}">Logout</a></p>
+            </div>
+        </header>
+
+        <div class="chat-box">
+            <h2>Conversación actual</h2>
+
+            {% if mensajes %}
+            {% for mensaje in mensajes %}
+            <div class="turno-chat">
+
+                <!-- Mensaje usuario -->
+                <div class="mensaje usuario">
+                    <p><strong>Imagen enviada:</strong></p>
+                    <img src="{{ mensaje.imagen.url }}" alt="Imagen subida" width="300">
+                    <small>{{ mensaje.fecha }}</small>
+                </div>
+
+                <!-- Respuesta asistente -->
+                <div class="mensaje asistente">
+                    <p><strong>Respuesta del sistema:</strong> {{ mensaje.respuesta }}</p>
+
+                    {% if forloop.last and bbox_img %}
+                    <h4>Áreas con anomalías detectadas:</h4>
+                    <img src="{{ bbox_img }}" alt="Bounding boxes de anomalías" width="300">
+                    {% endif %}
+
+                    <small>{{ mensaje.fecha }}</small>
+                </div>
+
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No hay mensajes en esta conversación.</p>
+            {% endif %}
+        </div>
+
+        <form method="POST" enctype="multipart/form-data" class="chat-form" id="chat-form">
+            {% csrf_token %}
+            <input type="file" name="imagen" accept="image/*" required>
+            <button type="submit">Subir y analizar</button>
+        </form>
+    </div>
+</body>
+</html>
