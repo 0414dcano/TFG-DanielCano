@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-bc3a%*n#3=d(ae_8!ojc004^ail_pzq!^y586=rz_++=l1#oy*
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://tfg-danielcano.onrender.com']
+ALLOWED_HOSTS = ['tfg-danielcano.onrender.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
