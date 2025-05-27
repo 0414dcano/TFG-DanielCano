@@ -33,7 +33,7 @@ def install_torch():
     	])
 
 def install_requirements():
-    requirements_file = "requirements.txt"
+    requirements_file = "./TFG/requirements.txt"
     if not os.path.exists(requirements_file):
         print(f"❌ No se encontró {requirements_file}")
         sys.exit(1)
