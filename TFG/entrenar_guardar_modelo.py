@@ -4,7 +4,8 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms, models
+from torchvision import transforms
+from torchvision.models import resnet18
 from PIL import Image
 import numpy as np
 from io import BytesIO
