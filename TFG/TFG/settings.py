@@ -30,7 +30,6 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
 
@@ -66,8 +65,15 @@ WSGI_APPLICATION = 'TFG.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME', 'db_juyg'),
+        'USER': os.getenv('DB_USER', 'db_juyg_user'),
+        'PASSWORD': os.getenv('DB_PASSWORD', ' w6cGdLvjV3MR91i8kBX1hQrcqTm3XOBI'),
+        'HOST': os.getenv('DB_HOST', 'dpg-d0qnt0adbo4c73ca5cj0-a.frankfurt-postgres.render.com'),
+        'PORT': os.getenv('DB_PORT', 5432),
+        'OPTIONS': {
+            'sslmode': 'require'  
+        }
     }
 }
 
