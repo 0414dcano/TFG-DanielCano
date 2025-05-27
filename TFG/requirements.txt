@@ -82,9 +82,7 @@ starlette==0.46.1
 svgwrite==1.4.3
 sympy==1.13.1
 tomlkit==0.13.2
-torch==2.6.0
 torchmetrics==1.7.1
-torchvision==0.21.0
 tqdm==4.67.1
 Tree==0.2.4
 typer==0.15.2
