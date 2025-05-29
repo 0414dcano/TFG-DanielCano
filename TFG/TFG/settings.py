@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-bc3a%*n#3=d(ae_8!ojc004^ail_pzq!^y586=rz_++=l1#oy*
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['tfg-danielcano.onrender.com']
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -65,15 +65,8 @@ WSGI_APPLICATION = 'TFG.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'db_juyg'),
-        'USER': os.getenv('DB_USER', 'db_juyg_user'),
-        'PASSWORD': os.getenv('DB_PASSWORD', ' w6cGdLvjV3MR91i8kBX1hQrcqTm3XOBI'),
-        'HOST': os.getenv('DB_HOST', 'dpg-d0qnt0adbo4c73ca5cj0-a.frankfurt-postgres.render.com'),
-        'PORT': os.getenv('DB_PORT', 5432),
-        'OPTIONS': {
-            'sslmode': 'require'  
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
