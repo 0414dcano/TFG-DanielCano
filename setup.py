@@ -41,8 +41,19 @@ def install_requirements():
     print(f"📦 Instalando dependencias desde {requirements_file}...")
     subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", requirements_file])
 
+def ajuste_BDD():
+    subprocess.check_call([sys.executable, "python", "./TFG/manage.py", "makemigrations"])
+    subprocess.check_call([sys.executable, "python", "./TFG/manage.py", "migrate"])
+
+def creacion_modelo():
+    subprocess.check_call([sys.executable, "python", "./TFG/entrenar_guardar_modelo.py"])
+
 if __name__ == "__main__":
     install_torch()
     install_requirements()
-    print("✅ Instalación completa.")
-
+    print("✅ Instalación completa. Ahora se va a proceder a ajustar la BBDD")
+    ajuste_BDD()
+    print("✅ BBDD ajustada correctamente. Se va a proceder a crear el modelo necesario")
+    creacion_modelo()
+    print("✅ Modelo Creado. Iniciando servidor local")
+    subprocess.check_call([sys.executable, "python", "./TFG/manage.py", "runserver"])
