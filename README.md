@@ -1,46 +1,51 @@
 # Sistema de Detección de Anomalías con Servidor Web
 
-Este proyecto permite ejecutar un sistema de detección de anomalías a través de un servidor web. A continuación, se detallan los pasos necesarios para su instalación y puesta en marcha.
+Este proyecto permite ejecutar un sistema de detección de anomalías a través de un servidor web. A continuación, se detallan los pasos necesarios para su configuración y puesta en marcha.
 
 ## Requisitos previos
 
 Antes de comenzar, asegúrese de tener instalado lo siguiente:
 
-- Python 3.10  
-- `pip` (gestor de paquetes de Python)  
+- **Python 3.10** (exclusivamente)
 - Git (opcional, si va a clonar el repositorio)
 
-## Instalación
+## Descarga del repositorio
 
-1. **Clonar el repositorio** (opcional):
+Puede clonar el repositorio con el siguiente comando:
 
-   ```bash
-   git clone https://github.com/usuario/nombre-del-repositorio.git
-   cd nombre-del-repositorio
+```bash
+git clone https://github.com/usuario/nombre-del-repositorio.git
+cd nombre-del-repositorio
+```
+
+También puede descargar el código manualmente desde GitHub si lo prefiere.
+
+## Preparación del Dataset
+
+Este sistema utiliza el dataset [MVTec Anomaly Detection (MVTec AD)](https://www.mvtec.com/company/research/datasets/mvtec-ad/downloads).
+
+1. Descargue el dataset desde el siguiente enlace:  
+   👉 https://www.mvtec.com/company/research/datasets/mvtec-ad/downloads
+
+2. Descomprima el archivo descargado en cualquier ubicación de su equipo.
+
+3. Abra el archivo `entrenar_guardar_modelo.py` y localice la variable `dataset_path`. Modifíquela con la ruta donde haya descomprimido el dataset. Por ejemplo:
+
+   ```python
+   dataset_path = r"ruta/al/dataset/"
    ```
 
-2. **Crear y activar un entorno virtual** (opcional pero recomendado):
+   Asegúrese de mantener el prefijo `r` para que la ruta se interprete correctamente como literal.
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # En Windows: venv\Scripts\activate
-   ```
+## Ejecución del servidor
 
-3. **Instalar las dependencias**:
+Una vez configurado el dataset, ejecute el siguiente comando para iniciar el servidor:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+python setup.py
+```
 
-4. **Ejecutar el script de inicialización**:
-
-   Una vez instaladas las dependencias, ejecute el siguiente comando para iniciar el servidor:
-
-   ```bash
-   python setup.py
-   ```
-
-   Espere unos segundos mientras se realiza la configuración inicial. El servidor se iniciará automáticamente.
+Espere unos minutos mientras se realiza la configuración inicial. El servidor se iniciará automáticamente.
 
 ## Uso
 
