@@ -18,7 +18,7 @@ git clone https://github.com/usuario/nombre-del-repositorio.git
 cd nombre-del-repositorio
 ```
 
-También puede descargar el código manualmente desde GitHub si lo prefiere.
+También puede descargar el código manualmente desde GitHub si lo prefiere o copiar el codigo fuente adjuntado en la entrega del TFG.
 
 ## Preparación del Dataset
 
